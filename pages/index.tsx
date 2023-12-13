@@ -1,109 +1,33 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
-import { NextPage } from "next";
+import { ConnectWallet } from '@thirdweb-dev/react'
+import { NextPage } from 'next'
+import NextLink from 'next/link'
+import { Button, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react'
 
 const Home: NextPage = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Welcome to{" "}
-            <span className={styles.gradientText0}>
-              <a
-                href="https://thirdweb.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                thirdweb.
-              </a>
-            </span>
-          </h1>
+    <Container
+      maxW={'1200px'}
+      backgroundImage="url('metaverse.jpg')"
+      backgroundSize="1200px"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+    >
+      <Flex h={'80vh'} alignItems={'center'} justifyContent={'center'}>
+        <Stack spacing={10} align={'center'}>
+          <Heading>Marketplace</Heading>
+          <Text fontSize={'xl'} align={'center'}>
+            Gateway to the Ethereum blockchain, NFT, Coin <br />
+            with Thirdweb, Ethers, Next.js, ChakraUI, Typescript
+          </Text>
+          <Button as={NextLink} href="/buy" bg="blue.200">
+            <Text fontSize={'2xl'} fontWeight={'bold'} p={4}>
+              Shop NFTs
+            </Text>
+          </Button>
+        </Stack>
+      </Flex>
+    </Container>
+  )
+}
 
-          <p className={styles.description}>
-            Get started by configuring your desired network in{" "}
-            <code className={styles.code}>src/index.js</code>, then modify the{" "}
-            <code className={styles.code}>src/App.js</code> file!
-          </p>
-
-          <div className={styles.connect}>
-            <ConnectWallet
-              dropdownPosition={{
-                side: "bottom",
-                align: "center",
-              }}
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://portal.thirdweb.com/"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/portal-preview.png"
-              alt="Placeholder preview of starter"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText1}>Portal ➜</h2>
-              <p>
-                Guides, references, and resources that will help you build with
-                thirdweb.
-              </p>
-            </div>
-          </a>
-
-          <a
-            href="https://thirdweb.com/dashboard"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/dashboard-preview.png"
-              alt="Placeholder preview of starter"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText2}>Dashboard ➜</h2>
-              <p>
-                Deploy, configure, and manage your smart contracts from the
-                dashboard.
-              </p>
-            </div>
-          </a>
-
-          <a
-            href="https://thirdweb.com/templates"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/templates-preview.png"
-              alt="Placeholder preview of templates"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText3}>Templates ➜</h2>
-              <p>
-                Discover and clone template projects showcasing thirdweb
-                features.
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </main>
-  );
-};
-
-export default Home;
+export default Home
